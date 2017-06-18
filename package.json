@@ -5,7 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "@linclark/pkg": "^1.0.2",
-    "async": "^0.2.10",
     "express": "^3.2.6",
     "socket.io": "^0.9.17"
   },
