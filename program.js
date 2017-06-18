@@ -1,14 +1,12 @@
 var fs = require("fs");
 
-function countingLines (string) {
-    var lines = string.split("\n");
-    var number = lines.length-1;
-    console.log(number);
-} 
-
-
-
-
-fs.readFile(process.argv[2], "utf8", function countlines (err, str){
-    countingLines(str);
+fs.readdir(process.argv[2], function filter (err, list) {
+    // if (err) {
+    //     console.log(err);
+    // }
+    for (var i=0; i<list.length-1; i++) {
+        if (list[i].endsWith("."+process.argv[3])) {
+            console.log(list[i]);
+        }
+    }
 })
