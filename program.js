@@ -1,12 +1,11 @@
-var fs = require("fs");
+var myModule = require("./myModule.js");
 
-fs.readdir(process.argv[2], function filter (err, list) {
-    // if (err) {
-    //     console.log(err);
-    // }
-    for (var i=0; i<list.length-1; i++) {
-        if (list[i].endsWith("."+process.argv[3])) {
-            console.log(list[i]);
-        }
+
+myModule(process.argv[2], process.argv[3], function filter (err, list) {
+    if (err) {
+        console.log(err);
     }
-})
+    for (var i=0; i<list.length; i++) {
+        console.log(list[i]);
+    }
+});
