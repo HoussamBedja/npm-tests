@@ -1,11 +1,10 @@
-var myModule = require("./myModule.js");
+// var http = require("http");
 
+// http.get(process.argv[2], function callback(response) {
+//     response.setEncoding("utf8");
+//     response.on("data", function(data) {
+//         console.log(data);
+//     });
+// })
 
-myModule(process.argv[2], process.argv[3], function filter (err, list) {
-    if (err) {
-        console.log(err);
-    }
-    for (var i=0; i<list.length; i++) {
-        console.log(list[i]);
-    }
-});
+var bl = require('bl');
