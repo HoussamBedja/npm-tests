@@ -34,19 +34,28 @@
 //  }
 
 
-var net = require('net');
-var server = net.createServer(function (socket) {  
-// socket handling logic
-var date = new Date();
-var year = date.getFullYear();
-var month = date.getMonth()+1;
-var day = date.getDate();
-var hour = date.getHours();
-var minutes = date.getMinutes();
-if(month<10) month = "0"+ month;
-if(day<10) day = "0"+ day;
-var date = year+"-"+month+"-"+day+""+" "+hour+":"+minutes+"\n";
-socket.end(date);
+// var net = require('net');
+// var server = net.createServer(function (socket) {  
+// // socket handling logic
+// var date = new Date();
+// var year = date.getFullYear();
+// var month = date.getMonth()+1;
+// var day = date.getDate();
+// var hour = date.getHours();
+// var minutes = date.getMinutes();
+// if(month<10) month = "0"+ month;
+// if(day<10) day = "0"+ day;
+// var date = year+"-"+month+"-"+day+""+" "+hour+":"+minutes+"\n";
+// socket.end(date);
 
+// })  
+// server.listen(process.argv[2]);
+
+
+var http = require('http')  
+var fs = require('fs') 
+var server = http.createServer(function (req, res) {  
+    var file = fs.createReadStream(process.argv[3]);
+    file.pipe(res);
 })  
-server.listen(process.argv[2]);
+server.listen(process.argv[2]);  
